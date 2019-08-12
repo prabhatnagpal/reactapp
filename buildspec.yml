@@ -23,7 +23,6 @@ phases:
       - echo Pushing the Docker images...
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
-      - echo Writing definitions file...
       - sed "s/\"Name\":.*/\"Name\": \"$REPOSITORY_URI:$IMAGE_TAG\"/" Dockerrun.aws.json
 
 artifacts:
