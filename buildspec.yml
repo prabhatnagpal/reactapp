@@ -24,7 +24,7 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing definitions file...
-      - printf '[{"AWSEBDockerrunVersion":"2","Image":{"Name":"%s","Update":"true"},"Ports":[{"ContainerPort":80,"HostPort":8080}]}]' $REPOSITORY_URI:$IMAGE_TAG > Dockerrun.aws.json
+      - sed -i "s/\"Name\":.*/\"Name\": \"$REPOSITORY_URI:$IMAGE_TAG\"/" Dockerrun.aws.json
 
 artifacts:
   files:
