@@ -24,7 +24,7 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - export REPO=$(echo "$REPOSITORY_URI:$IMAGE_TAG")
-      - printf '{"AWSEBDockerrunVersion":"1","Image":{"Name":"%s:%s","Update":"true"},"Ports":[{"ContainerPort":80,"HostPort":8080}]}' "$REPO" > Dockerrun.aws.json
+      - printf '{"AWSEBDockerrunVersion":"1","Image":{"Name":"%s","Update":"true"},"Ports":[{"ContainerPort":80,"HostPort":8080}]}' "$REPO" > Dockerrun.aws.json
 
 artifacts:
   files:
